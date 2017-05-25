@@ -160,7 +160,7 @@ var Packer = Base.extend({
 		};
 
 		// js reserved words up to 3 characters (gives a variable range of over 140k)
-		var jsReservedWords = ['do', 'for', 'if', 'in', 'int', 'let', 'new', 'try', 'var', 'NaN', 'all', 'top'];
+        var jsReservedWords = { "do":1, "for":1, "if":1, "in":1, "int":1, "let":1, "new":1, "try":1, "var":1, "NaN":1, "all":1, "top":1 };
 				
 		// identify blocks, particularly identify function blocks (which define scope)
 		var BLOCK = /(function\s*[\w$]*\s*\(\s*([^\)]*)\s*\)\s*)?(\{([^{}]*)\})/;
@@ -189,7 +189,8 @@ var Packer = Base.extend({
 						id = rescape(id);
 						// find the next free short name (check everything in the current scope)
 						do shortId = encode52(count++);
-						while (new RegExp("[^\\w$.]" + shortId + "[^\\w$:]").test(block) && jsReservedWords.indexOf(shortId) !== -1);
+						while (new RegExp("[^\\w$.]" + shortId + "[^\\w$:]").test(block));
+                        if (jsReservedWords[shortId]) shortId = '_' + shortId;
 						// replace the long name with the short name
 						var reg = new RegExp("([^\\w$.])" + id + "([^\\w$:])");
 						while (reg.test(block)) block = block.replace(global(reg), "$1" + shortId + "$2");
