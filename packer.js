@@ -53,7 +53,27 @@ var Words = Collection.extend({
 	},
 	
 	toString: function() {
-		return this.getValues().join("|");
+		var z = this.getValues();
+		var i;
+		var values = [];
+		for (i=0; i < z.length; i++)
+		{
+			invalid = false;
+			var enc="";
+			var s = z[i].toString();
+			for (var i2 = 0; i2 < s.length;i2++)
+			{
+				var cd = s.charCodeAt(i2);
+				invalid = invalid | (cd>255)
+				enc = enc + "\\x"+("0" + cd.toString(16)).slice(-2);
+			}
+			values.push(enc);
+			if (invalid)
+			{
+			    console.error("invalid unicode string " + s + " found");
+			}
+		}
+		return values.join("|");
 	}
 }, {
 	Item: {
