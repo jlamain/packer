@@ -23,6 +23,11 @@ var args = require('nomnom').opts({
 	phrase: {
 		abbr: 'p',
 		help: 'Variables phrase (6 different letters)'
+	},
+	version: {
+		abbr: 'v',
+		flag: true,
+		help: 'output version string'
 	}
 }).parseArgs();
 
@@ -41,7 +46,11 @@ function finish() {
 	}
 }
 
-if (args.input_file) {
+if (args.version) {
+	var pjson = require('./package.json');
+	console.log("packer version " + pjson.version);
+}
+else if (args.input_file) {
 	fs.readFile(args.input_file, function(error, input_data) {
 		if (error) {
 			console.log('could not read from "' + args.input_file + '": ' + error.message);

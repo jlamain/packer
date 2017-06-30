@@ -1,7 +1,7 @@
 {
 	"name": "packer",
 	"description": "Simple port of /packer/ by Dean Edwards",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"repository": "https://github.com/jlamain/packer",
 	"author": "Evan Wallace, jlamain",
 	"main": "packer",
