@@ -3,6 +3,7 @@
 This is a simple port of [/packer/](http://dean.edwards.name/packer/) by Dean Edwards to node.js.
 
 [![Build Status](https://travis-ci.org/jlamain/packer.svg?branch=master)](https://travis-ci.org/jlamain/packer)
+[![dependencies Status](https://david-dm.org/jlamain/packer/status.svg)](https://david-dm.org/jlamain/packer)
 
 ## Installation
 
