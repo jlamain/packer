@@ -39,6 +39,7 @@ function finish() {
 		fs.writeFile(args.output_file, packed_data, function(error) {
 			if (error) {
 				console.log('could not write to "' + args.output_file + '": ' + error.message);
+				process.exit(1);
 			}
 		});
 	} else {
@@ -54,6 +55,8 @@ else if (args.input_file) {
 	fs.readFile(args.input_file, function(error, input_data) {
 		if (error) {
 			console.log('could not read from "' + args.input_file + '": ' + error.message);
+			process.exit(2);
+
 		} else {
 			data = input_data;
 			finish();

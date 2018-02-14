@@ -1,20 +1,26 @@
 {
-	"name": "packer",
-	"description": "Simple port of /packer/ by Dean Edwards",
-	"version": "0.1.5",
-	"repository": "https://github.com/jlamain/packer",
-	"author": "Evan Wallace, jlamain",
-	"main": "packer",
-	"dependencies": {
-		"jsdom": "9.8.3",
-		"htmlparser": ">= 1.7.7",
-		"nomnom": ">= 1.8.1"
-	},
-	"bin": {
-		"packer" : "./cli.js"
-	},
-	"engines": {
-	    "node": ">= 6.6.0"
-	},
-	"license" : "MIT"
+  "name": "packer",
+  "description": "Simple port of /packer/ by Dean Edwards",
+  "version": "0.1.5",
+  "repository": "https://github.com/jlamain/packer",
+  "author": "Evan Wallace, jlamain",
+  "main": "packer",
+  "dependencies": {
+    "jsdom": "9.8.3",
+    "htmlparser": ">= 1.7.7",
+    "nomnom": ">= 1.8.1"
+  },
+  "bin": {
+    "packer": "./cli.js"
+  },
+  "engines": {
+    "node": ">= 6.6.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^5.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
 }
